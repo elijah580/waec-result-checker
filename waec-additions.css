@@ -1,0 +1,55 @@
+
+  /* ===== APPEND THIS TO waec-design-1.css ===== */
+
+  /* Real <input> elements need their browser defaults reset to
+     look like the .field boxes did as plain divs */
+  input.field {
+    width: 100%;
+    font-family: 'IBM Plex Mono', monospace;
+    outline: none;
+  }
+  input.field::placeholder {
+    color: rgba(247,245,239,0.35);
+  }
+  input.field:focus {
+    border-color: var(--gold);
+  }
+
+  .field-error {
+    color: #E07A5F;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    margin: -10px 0 12px;
+    min-height: 14px;
+  }
+
+  /* Scratch panel is now a <button> — strip button defaults */
+  .scratch-panel {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+  .scratch-texture {
+    transition: opacity 0.4s ease;
+  }
+  .pin-value {
+    transition: letter-spacing 0.2s ease;
+  }
+
+  .btn-check:disabled {
+    opacity: 0.7;
+    cursor: default;
+  }
+
+  /* Result slip starts hidden, fades in when revealed */
+  .hidden {
+    display: none;
+  }
+  .slip-section:not(.hidden) {
+    animation: reveal 0.5s ease;
+  }
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
