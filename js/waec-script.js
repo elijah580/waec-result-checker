@@ -56,6 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
     clearError(pinError);
   });
 
+  const hideResultBtn = document.getElementById('hideResultBtn');
+  // ----- Hide the result slip again -----
+hideResultBtn.addEventListener('click', function () {
+  resultSlip.classList.add('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
   // ----- Form submit: validate, show loading, reveal result -----
   form.addEventListener('submit', function (e) {
     e.preventDefault();

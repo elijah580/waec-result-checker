@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="css/waec-design-1.css">
 </head>
 <body>
-
 <nav>
   <div class="wrap nav-inner">
     <div class="logo">
@@ -19,27 +18,36 @@
         <small>Official statement portal</small>
       </div>
     </div>
-    <div class="nav-links">
-      <a href="#" class="nav-link">Check result</a>
-      <a href="#" class="nav-link">Buy PIN</a>
-      <a href="#" class="nav-link">Help</a>
-    </div>
-    <div class="nav-help">
-      <span class="nav-help-dot"></span>
-      0800-RESULTS
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="navPanel">
+      <div class="nav-links">
+        <a href="#" class="nav-link">Check result</a>
+        <a href="#" class="nav-link">Buy PIN</a>
+        <a href="#" class="nav-link">Help</a>
+        <a href="result-page (1).html" class="nav-link">My Result</a>
+      </div>
+      <div class="nav-help">
+        <span class="nav-help-dot"></span>
+        0800-RESULTS
+      </div>
     </div>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="wrap" style="display:contents;">
-    <div>
-      <div class="eyebrow-line">WAEC · NECO · SSCE RESULT PORTAL</div>
-      <h1>Scratch. Enter your PIN. See your result.</h1>
-      <p class="hero-copy">Same PIN and serial number from your scratch card — enter them exactly as printed and your statement of result appears below, ready to save or print.</p>
-      <div class="hero-note">Each card is valid for one result check only.</div>
-<button class="btn-primary-reveal" id="showCardBtn">Check my result</button>
-    </div>
+  <div class="hero-bg-mark"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow-line">WAEC · NECO · SSCE RESULT PORTAL</div>
+    <h1>Scratch. Enter your PIN.<br>See your result.</h1>
+    <p class="hero-copy">Same PIN and serial number from your scratch card — enter them exactly as printed and your statement of result appears below, ready to save or print.</p>
+    <div class="hero-note">Each card is valid for one result check only.</div>
+    <button class="btn-primary-reveal" id="showCardBtn">Check my result</button>
 
     <div class="card hidden" id="scratchCard">
       <div class="card-top">
@@ -105,6 +113,7 @@
       <h2>Your result</h2>
       <p>Statement of result for the details you entered above.</p>
     </div>
+    <button class="btn-hide-result" id="hideResultBtn">Hide result</button>
 
     <div class="slip">
       <div class="slip-head">
