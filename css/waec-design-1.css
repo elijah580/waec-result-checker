@@ -515,14 +515,32 @@ nav::after {
     opacity: 0.7;
     cursor: default;
   }
+.hidden {
+  display: none;
+}
 
-  /* Result slip starts hidden, fades in when revealed */
-  .hidden {
-    display: none;
-  }
-  .slip-section:not(.hidden) {
-    animation: reveal 0.5s ease;
-  }
+/* Result slip becomes a full-screen overlay that covers the checker */
+.slip-section:not(.hidden) {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 26, 26, 0.6);
+  padding: 40px 20px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  border-top: none;
+  animation: fadeInOverlay 0.3s ease;
+}
+.slip-section:not(.hidden) .wrap {
+  max-width: 640px;
+  width: 100%;
+  height: fit-content;
+}
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
   @keyframes reveal {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }

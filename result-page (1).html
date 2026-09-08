@@ -5,83 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Result — RESULTCHECK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/waec-design-1.css">
 <link rel="stylesheet" href="css/result-page.css">
 </head>
-<body>
+<body class="result-page-body">
 
-<div class="page-bg">
-  <div class="bg-mark bg-mark-1"></div>
-  <div class="bg-mark bg-mark-2"></div>
-</div>
-
-<div class="result-shell">
-
-  <div class="result-header">
-    <div class="header-left">
-      <div class="header-seal">W</div>
-      <h1>Results</h1>
+<div class="result-page-wrap">
+  <div class="slip">
+    <div class="slip-head">
+      <div class="title">Statement of Result<small>WEST AFRICAN SENIOR SCHOOL CERTIFICATE EXAMINATION</small></div>
+      <div class="slip-seal">OFFICIAL<br>SEAL</div>
     </div>
-    <div class="header-right">RESULTCHECK</div>
+    <div class="slip-meta">
+      <span>CANDIDATE — <strong>ADAEZE O. NWACHUKWU</strong></span>
+      <span>EXAM NO — <strong>4291 0182 034</strong></span>
+      <span>SESSION — <strong>MAY/JUNE 2026</strong></span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Subject</th><th></th><th>Grade</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>English Language</td><td></td><td class="grade-B2">B2</td></tr>
+        <tr><td>Mathematics</td><td></td><td class="grade-A1">A1</td></tr>
+        <tr><td>Biology</td><td></td><td class="grade-B3">B3</td></tr>
+        <tr><td>Chemistry</td><td></td><td class="grade-C4">C4</td></tr>
+        <tr><td>Physics</td><td></td><td class="grade-C5">C5</td></tr>
+        <tr><td>Geography</td><td></td><td class="grade-B2">B2</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="result-frame">
-
-    <div class="block-title">Candidate's Information</div>
-    <table class="info-table" id="infoTable">
-      <tr>
-        <td class="label">Examination Number</td>
-        <td class="value">4291 0182 034</td>
-      </tr>
-      <tr>
-        <td class="label">Candidate's Name</td>
-        <td class="value">ADAEZE O. NWACHUKWU</td>
-      </tr>
-      <tr>
-        <td class="label">Examination</td>
-        <td class="value">WASSCE FOR SCHOOL CANDIDATES 2026</td>
-      </tr>
-      <tr>
-        <td class="label">Centre</td>
-        <td class="value">GREATER GRACE HIGH SCHOOL, KETU</td>
-      </tr>
-    </table>
-
-    <div class="block-title">Subject / Grade</div>
-    <table class="subject-table" id="subjectTable">
-      <tr><td>English Language</td><td class="grade">B2</td></tr>
-      <tr><td>Mathematics</td><td class="grade">A1</td></tr>
-      <tr><td>Biology</td><td class="grade">B3</td></tr>
-      <tr><td>Chemistry</td><td class="grade">C4</td></tr>
-      <tr><td>Physics</td><td class="grade">C5</td></tr>
-      <tr><td>Geography</td><td class="grade">B2</td></tr>
-      <tr><td>Civic Education</td><td class="grade">B3</td></tr>
-      <tr><td>Book Keeping</td><td class="grade">B3</td></tr>
-    </table>
-
-    <div class="block-title">Card Information</div>
-    <table class="info-table">
-      <tr>
-        <td class="label">Card Use</td>
-        <td class="value">2 of 5</td>
-      </tr>
-    </table>
-
-    <button class="print-banner" id="printBtn">Click Here to Print</button>
-
-    <div class="app-promo">
-      <strong>Download the RESULTCHECK App</strong>
-      <div class="app-links">
-        <span>ANDROID: <a href="#">bit.ly/resultcheck-play</a></span>
-        <span>iOS: <a href="#">bit.ly/resultcheck-ios</a></span>
-      </div>
-      <div class="app-register">or register on the web: <a href="#">www.resultcheck.ng</a></div>
-    </div>
-
-  </div>
-
-  <button class="close-window" id="closeWindowBtn">Close Window</button>
-
+  <button class="btn-hide-result" id="closeWindowBtn">Close</button>
 </div>
 
 <script src="js/result-page.js"></script>
