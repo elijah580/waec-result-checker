@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const examInput = document.getElementById('examNumber');
   const serialInput = document.getElementById('serialNumber');
   const checkBtn = document.getElementById('checkBtn');
-  const resultSlip = document.getElementById('resultSlip');
-  const slipExamNumber = document.getElementById('slipExamNumber');
 
   const examError = document.getElementById('examNumberError');
   const serialError = document.getElementById('serialNumberError');
@@ -56,13 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearError(pinError);
   });
 
-  const hideResultBtn = document.getElementById('hideResultBtn');
-  // ----- Hide the result slip again -----
-hideResultBtn.addEventListener('click', function () {
-  resultSlip.classList.add('hidden');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
+  
   // ----- Form submit: validate, show loading, reveal result -----
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -93,21 +85,15 @@ hideResultBtn.addEventListener('click', function () {
     if (!valid) return;
 
     // Loading state
-    checkBtn.disabled = true;
-    const originalLabel = checkBtn.textContent;
-    checkBtn.textContent = 'Checking…';
+checkBtn.disabled = true;
+checkBtn.textContent = 'Checking…';
 
-    // Simulated network delay — replace this whole block with a real
-    // fetch('/api/check-result', { method: 'POST', body: ... }) call.
-    setTimeout(function () {
-      checkBtn.disabled = false;
-      checkBtn.textContent = originalLabel;
-
-      slipExamNumber.textContent = examInput.value.trim();
-
-      resultSlip.classList.remove('hidden');
-      resultSlip.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 1200);
+// Simulated network delay — replace this whole block with a real
+// fetch('/api/check-result', { method: 'POST', body: ... }) call.
+setTimeout(function () {
+  const examValue = encodeURIComponent(examInput.value.trim());
+  window.location.href = 'result-page.html?exam=' + examValue;
+}, 1200);
   });
 
   function showError(el, message) {
