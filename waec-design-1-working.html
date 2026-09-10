@@ -1,121 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WAEC Result Checker</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/waec-design-1.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAEC Result Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/waec-design-1.css">
 </head>
+
 <body>
-<nav>
-  <div class="wrap nav-inner">
-    <div class="logo">
-      <div class="logo-seal">W</div>
-      <div class="logo-text">
-        RESULT<span>CHECK</span>
-        <small>Official statement portal</small>
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="logo">
+        <div class="logo-seal">W</div>
+        <div class="logo-text">
+          RESULT<span>CHECK</span>
+          <small>Official statement portal</small>
+        </div>
       </div>
-    </div>
 
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <div class="nav-panel" id="navPanel">
-  <div class="nav-links">
-    <a href="#" class="nav-link">Check result</a>
-    <a href="#" class="nav-link">Buy PIN</a>
-    <a href="#" class="nav-link">Help</a>
-    <a href="result-page.html" class="nav-link">My Result</a>
-  </div>
-</div>
+      <div class="nav-panel" id="navPanel">
+        <div class="nav-links">
+          <a href="#" class="nav-link">Check result</a>
+          <a href="#" class="nav-link">Buy PIN</a>
+          <a href="#" class="nav-link">Help</a>
+          <a href="result-page.html" class="nav-link">My Result</a>
+        </div>
+      </div>
       <div class="nav-help">
         <span class="nav-help-dot"></span>
         0800-RESULTS
       </div>
     </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-bg-mark"></div>
-  <div class="wrap hero-inner">
-    <div class="eyebrow-line">WAEC · NECO · SSCE RESULT PORTAL</div>
-    <h1>Scratch. Enter your PIN.<br>See your result.</h1>
-    <p class="hero-copy">Same PIN and serial number from your scratch card — enter them exactly as printed and your statement of result appears below, ready to save or print.</p>
-    <div class="hero-note">Each card is valid for one result check only.</div>
-    <button class="btn-primary-reveal" id="showCardBtn">Check my result</button>
-
-    <div class="card hidden" id="scratchCard">
-      <div class="card-top">
-        <div class="card-brand">Result Checker<small>WAEC · MAY/JUNE</small></div>
-        <div class="card-year">2026</div>
-      </div>
-
-      <form class="card-body" id="checkForm" novalidate>
-        <label class="field-label" for="examNumber">EXAMINATION NUMBER</label>
-        <input class="field" type="text" id="examNumber" name="examNumber"
-               placeholder="e.g. 4291 0182 034" required>
-        <div class="field-error" id="examNumberError"></div>
-
-        <label class="field-label" for="serialNumber">SERIAL NUMBER</label>
-        <input class="field" type="text" id="serialNumber" name="serialNumber"
-               placeholder="e.g. WRN 2026114 4471" required>
-        <div class="field-error" id="serialNumberError"></div>
-
-        <div class="field-label">SCRATCH TO REVEAL PIN</div>
-        <button type="button" class="scratch-panel" id="scratchPanel" aria-pressed="false">
-          <div class="scratch-texture" id="scratchTexture"></div>
-          <span class="pin-label">PIN</span>
-          <span class="pin-value" id="pinValue">••• ••• •••</span>
-        </button>
-        <div class="field-error" id="pinError"></div>
-        <input type="hidden" id="pinHidden" name="pin" value="">
-
-        <button type="submit" class="btn-check" id="checkBtn">Check my result</button>
-      </form>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="steps">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>How checking works</h2>
-      <p>Three steps, same as the physical card — just digital.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Buy or locate your card</h3>
-        <p>Use a physical scratch card from an accredited vendor, or a PIN sent to you after paying online.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Enter the three numbers</h3>
-        <p>Examination number, serial number, and the PIN under the scratch panel — typed exactly as printed.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>View and save your slip</h3>
-        <p>Your statement of result appears instantly. Download it as a PDF or print it directly.</p>
+  <section class="hero">
+    <div class="hero-bg-mark"></div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow-line">WAEC · NECO · SSCE RESULT PORTAL</div>
+      <h1>Scratch. Enter your PIN.<br>See your result.</h1>
+      <p class="hero-copy">Same PIN and serial number from your scratch card — enter them exactly as printed and your
+        statement of result appears below, ready to save or print.</p>
+      <div class="hero-note">Each card is valid for one result check only.</div>
+      <button class="btn-primary-reveal" id="showCardBtn">Check my result</button>
+      <a href="result-page.html" class="btn-secondary-link">Or build a custom result slip →</a>
+
+
+      <div class="card hidden" id="scratchCard">
+        <div class="card-top">
+          <div class="card-brand">Result Checker<small>WAEC · MAY/JUNE</small></div>
+          <div class="card-year">2026</div>
+        </div>
+
+        <form class="card-body" id="checkForm" novalidate>
+          <label class="field-label" for="examNumber">EXAMINATION NUMBER</label>
+          <input class="field" type="text" id="examNumber" name="examNumber" placeholder="e.g. 4291 0182 034" required>
+          <div class="field-error" id="examNumberError"></div>
+
+          <label class="field-label" for="serialNumber">SERIAL NUMBER</label>
+          <input class="field" type="text" id="serialNumber" name="serialNumber" placeholder="e.g. WRN 2026114 4471"
+            required>
+          <div class="field-error" id="serialNumberError"></div>
+
+          <div class="field-label">SCRATCH TO REVEAL PIN</div>
+          <button type="button" class="scratch-panel" id="scratchPanel" aria-pressed="false">
+            <div class="scratch-texture" id="scratchTexture"></div>
+            <span class="pin-label">PIN</span>
+            <span class="pin-value" id="pinValue">••• ••• •••</span>
+          </button>
+          <div class="field-error" id="pinError"></div>
+          <input type="hidden" id="pinHidden" name="pin" value="">
+
+          <button type="submit" class="btn-check" id="checkBtn">Check my result</button>
+        </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="steps">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How checking works</h2>
+        <p>Three steps, same as the physical card — just digital.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Buy or locate your card</h3>
+          <p>Use a physical scratch card from an accredited vendor, or a PIN sent to you after paying online.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Enter the three numbers</h3>
+          <p>Examination number, serial number, and the PIN under the scratch panel — typed exactly as printed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>View and save your slip</h3>
+          <p>Your statement of result appears instantly. Download it as a PDF or print it directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-<footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
-    <span>RESULTCHECK — NOT AFFILIATED WITH WAEC</span>
-    <span>SUPPORT@RESULTCHECK.NG</span>
-  </div>
-</footer>
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <span>RESULTCHECK — NOT AFFILIATED WITH WAEC</span>
+      <span>SUPPORT@RESULTCHECK.NG</span>
+    </div>
+  </footer>
 
-<script src="js/waec-script.js"></script>
+  <script src="js/waec-script.js"></script>
 </body>
+
 </html>

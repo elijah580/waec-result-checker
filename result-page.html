@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Result — RESULTCHECK</title>
+<title>Build Your Result — RESULTCHECK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/waec-design-1.css">
@@ -15,8 +15,48 @@
   <div class="result-bg-mark"></div>
 </div>
 
-<div class="result-page-wrap">
-  <div class="slip slip-horizontal">
+<div class="builder-wrap">
+
+  <a href="waec-design-1-working.html" class="btn-return">← Return to Home</a>
+
+  <!-- ===== BUILDER (shown first) ===== -->
+  <div class="builder-panel" id="inputPanel">
+
+    <div class="builder-head">
+      <h2>Build your result slip</h2>
+      <p>Pick a course stream to start, then edit anything.</p>
+    </div>
+
+    <div class="stream-picker">
+      <button type="button" class="stream-chip stream-science" data-stream="science">Science</button>
+      <button type="button" class="stream-chip stream-arts" data-stream="arts">Arts</button>
+      <button type="button" class="stream-chip stream-commercial" data-stream="commercial">Commercial</button>
+    </div>
+
+    <div class="builder-columns">
+      <div class="builder-col-left">
+        <label class="field-label">CANDIDATE NAME</label>
+        <input type="text" class="field-light" id="inputName" placeholder="e.g. Adaeze O. Nwachukwu">
+
+        <label class="field-label">EXAMINATION NUMBER</label>
+        <input type="text" class="field-light" id="inputExamNo" placeholder="e.g. 4291 0182 034">
+
+        <label class="field-label">SESSION</label>
+        <input type="text" class="field-light" id="inputSession" placeholder="e.g. MAY/JUNE 2026">
+
+        <button type="button" class="btn-generate" id="generateBtn">Generate Result Slip</button>
+      </div>
+
+      <div class="builder-col-right">
+        <label class="field-label">SUBJECTS &amp; GRADES</label>
+        <div class="subject-rows" id="subjectRows"></div>
+        <button type="button" class="btn-add-subject" id="addSubjectBtn">+ Add Subject</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GENERATED SLIP (hidden until generated) ===== -->
+  <div class="slip slip-horizontal hidden" id="generatedSlip">
     <div class="slip-head">
       <div class="title">Statement of Result<small>WEST AFRICAN SENIOR SCHOOL CERTIFICATE EXAMINATION</small></div>
       <div class="slip-seal">OFFICIAL<br>SEAL</div>
@@ -24,30 +64,22 @@
 
     <div class="slip-body-horizontal">
       <div class="slip-meta-vertical">
-        <div class="meta-row"><span class="meta-label">CANDIDATE</span><strong>ADAEZE O. NWACHUKWU</strong></div>
-        <div class="meta-row"><span class="meta-label">EXAM NO</span><strong id="slipExamNumber">4291 0182 034</strong></div>
-        <div class="meta-row"><span class="meta-label">SESSION</span><strong>MAY/JUNE 2026</strong></div>
+        <div class="meta-row"><span class="meta-label">CANDIDATE</span><strong id="outName">—</strong></div>
+        <div class="meta-row"><span class="meta-label">EXAM NO</span><strong id="outExamNo">—</strong></div>
+        <div class="meta-row"><span class="meta-label">SESSION</span><strong id="outSession">—</strong></div>
       </div>
 
       <table class="subjects-table-horizontal">
-        <thead>
-          <tr><th>Subject</th><th>Grade</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>English Language</td><td class="grade-B2">B2</td></tr>
-          <tr><td>Mathematics</td><td class="grade-A1">A1</td></tr>
-          <tr><td>Biology</td><td class="grade-B3">B3</td></tr>
-          <tr><td>Chemistry</td><td class="grade-C4">C4</td></tr>
-          <tr><td>Physics</td><td class="grade-C5">C5</td></tr>
-          <tr><td>Geography</td><td class="grade-B2">B2</td></tr>
-        </tbody>
+        <thead><tr><th>Subject</th><th>Grade</th></tr></thead>
+        <tbody id="outSubjectsBody"></tbody>
       </table>
     </div>
 
     <div class="slip-actions">
-      <a href="waec-design-1-working.html" class="btn-back-home">← Back to Home</a>
+      <button type="button" class="btn-back-home" id="editAgainBtn">← Edit Again</button>
     </div>
   </div>
+
 </div>
 
 <script src="js/result-page.js"></script>
