@@ -54,7 +54,22 @@ document.addEventListener('DOMContentLoaded', function () {
     clearError(pinError);
   });
 
-  
+  // ----- Steps section: fade cards in as you scroll to them -----
+const stepCards = document.querySelectorAll('.step-card');
+if (stepCards.length) {
+  const stepObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        stepObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  stepCards.forEach(function (card) {
+    stepObserver.observe(card);
+  });
+}
   // ----- Form submit: validate, show loading, reveal result -----
   form.addEventListener('submit', function (e) {
     e.preventDefault();

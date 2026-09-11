@@ -5,81 +5,106 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build Your Result — RESULTCHECK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/waec-design-1.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/result-page.css">
 </head>
-<body class="result-page-body">
+<body>
 
-<div class="result-bg">
-  <div class="result-bg-mark"></div>
+<div class="page-bg">
+  <div class="bg-mark bg-mark-1"></div>
+  <div class="bg-mark bg-mark-2"></div>
 </div>
 
-<div class="builder-wrap">
+<div class="builder-wrap" id="builderWrap">
 
-  <a href="waec-design-1-working.html" class="btn-return">← Return to Home</a>
+  <div class="top-bar">
+    <div class="top-bar-seal">W</div>
+    <span class="top-bar-title">RESULT BUILDER</span>
+    <a href="waec-design-1-working.html" class="btn-return">← Return to Home</a>
+  </div>
 
-  <!-- ===== BUILDER (shown first) ===== -->
-  <div class="builder-panel" id="inputPanel">
+  <div class="builder-panel">
 
-    <div class="builder-head">
-      <h2>Build your result slip</h2>
-      <p>Pick a course stream to start, then edit anything.</p>
-    </div>
-
+    <div class="block-title">Choose Your Stream</div>
     <div class="stream-picker">
-      <button type="button" class="stream-chip stream-science" data-stream="science">Science</button>
+      <button type="button" class="stream-chip stream-science active" data-stream="science">Science</button>
       <button type="button" class="stream-chip stream-arts" data-stream="arts">Arts</button>
       <button type="button" class="stream-chip stream-commercial" data-stream="commercial">Commercial</button>
     </div>
 
-    <div class="builder-columns">
-      <div class="builder-col-left">
-        <label class="field-label">CANDIDATE NAME</label>
-        <input type="text" class="field-light" id="inputName" placeholder="e.g. Adaeze O. Nwachukwu">
-
-        <label class="field-label">EXAMINATION NUMBER</label>
-        <input type="text" class="field-light" id="inputExamNo" placeholder="e.g. 4291 0182 034">
-
-        <label class="field-label">SESSION</label>
-        <input type="text" class="field-light" id="inputSession" placeholder="e.g. MAY/JUNE 2026">
-
-        <button type="button" class="btn-generate" id="generateBtn">Generate Result Slip</button>
+    <div class="block-title">Candidate's Information</div>
+    <div class="form-grid">
+      <div class="form-field">
+        <label>Candidate Name <span class="required-mark">*</span></label>
+        <input type="text" class="field-input" id="inputName" placeholder="Full name">
+        <div class="field-error" id="errorName"></div>
       </div>
-
-      <div class="builder-col-right">
-        <label class="field-label">SUBJECTS &amp; GRADES</label>
-        <div class="subject-rows" id="subjectRows"></div>
-        <button type="button" class="btn-add-subject" id="addSubjectBtn">+ Add Subject</button>
+      <div class="form-field">
+        <label>Examination Number <span class="required-mark">*</span></label>
+        <input type="text" class="field-input mono" id="inputExamNo" placeholder="e.g. 4291 0182 034">
+        <div class="field-error" id="errorExamNo"></div>
+      </div>
+      <div class="form-field">
+        <label>Session <span class="required-mark">*</span></label>
+        <input type="text" class="field-input mono" id="inputSession" placeholder="e.g. MAY/JUNE 2026">
+        <div class="field-error" id="errorSession"></div>
       </div>
     </div>
+
+    <div class="block-title">Subjects &amp; Grades</div>
+    <div class="field-error" id="errorSubjects"></div>
+    <div class="subject-rows" id="subjectRows"></div>
+    <button type="button" class="btn-add-subject" id="addSubjectBtn">+ Add Subject</button>
+
+    <button type="button" class="btn-generate" id="generateBtn">
+      <span>Generate Result Slip</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===== GENERATED SLIP (its own screen) ===== -->
+<div class="slip-screen hidden" id="slipScreen">
+  <div class="slip-bg">
+    <div class="slip-bg-mark"></div>
   </div>
 
-  <!-- ===== GENERATED SLIP (hidden until generated) ===== -->
-  <div class="slip slip-horizontal hidden" id="generatedSlip">
-    <div class="slip-head">
-      <div class="title">Statement of Result<small>WEST AFRICAN SENIOR SCHOOL CERTIFICATE EXAMINATION</small></div>
-      <div class="slip-seal">OFFICIAL<br>SEAL</div>
+  <div class="slip-shell">
+    <div class="slip-header">
+      <div class="slip-header-left">
+        <div class="slip-seal">W</div>
+        <h1>Results</h1>
+      </div>
+      <div class="slip-header-right">RESULTCHECK</div>
     </div>
 
-    <div class="slip-body-horizontal">
-      <div class="slip-meta-vertical">
-        <div class="meta-row"><span class="meta-label">CANDIDATE</span><strong id="outName">—</strong></div>
-        <div class="meta-row"><span class="meta-label">EXAM NO</span><strong id="outExamNo">—</strong></div>
-        <div class="meta-row"><span class="meta-label">SESSION</span><strong id="outSession">—</strong></div>
-      </div>
+    <div class="slip-frame">
 
-      <table class="subjects-table-horizontal">
-        <thead><tr><th>Subject</th><th>Grade</th></tr></thead>
+      <div class="block-title-slip">Candidate's Information</div>
+      <table class="info-table" id="infoTable">
+        <tr><td class="label">Examination Number</td><td class="value" id="outExamNo">—</td></tr>
+        <tr><td class="label">Candidate's Name</td><td class="value" id="outName">—</td></tr>
+        <tr><td class="label">Session</td><td class="value" id="outSession">—</td></tr>
+        <tr><td class="label">Stream</td><td class="value" id="outStream">—</td></tr>
+      </table>
+
+      <div class="block-title-slip">Subject / Grade</div>
+      <table class="subject-table" id="subjectTable">
         <tbody id="outSubjectsBody"></tbody>
       </table>
+
+      <div class="block-title-slip">Result Summary</div>
+      <table class="info-table">
+        <tr><td class="label">Subjects Recorded</td><td class="value" id="outCount">0</td></tr>
+      </table>
+
+      <button type="button" class="print-banner" id="printBtn">Print / Save Result</button>
     </div>
 
     <div class="slip-actions">
-      <button type="button" class="btn-back-home" id="editAgainBtn">← Edit Again</button>
+      <button type="button" class="btn-outline" id="editAgainBtn">← Edit Again</button>
+      <a href="waec-design-1-working.html" class="btn-outline">Return to Home</a>
     </div>
   </div>
-
 </div>
 
 <script src="js/result-page.js"></script>
