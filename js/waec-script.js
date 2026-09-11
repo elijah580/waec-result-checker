@@ -1,8 +1,3 @@
-// This is a front-end demo only — it doesn't check a real result.
-// It fakes a PIN (like the one printed under a real scratch card) and
-// simulates a short "checking" delay before showing the sample slip.
-// Swap the setTimeout block for a real fetch() call to your backend/API
-// once you have one.
 
 document.addEventListener('DOMContentLoaded', function () {
   const scratchPanel = document.getElementById('scratchPanel');
@@ -36,11 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  // The "real" PIN under the card — in a real product this comes from
-  // whatever card the user bought, not from the front end.
+
   const FAKE_PIN = '223 891 730';
 
-  // ----- Scratch panel: click/tap to reveal the PIN -----
+  
   scratchPanel.addEventListener('click', function () {
     const alreadyRevealed = scratchPanel.getAttribute('aria-pressed') === 'true';
     if (alreadyRevealed) return;
@@ -54,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
     clearError(pinError);
   });
 
-  // ----- Steps section: fade cards in as you scroll to them -----
 const stepCards = document.querySelectorAll('.step-card');
 if (stepCards.length) {
   const stepObserver = new IntersectionObserver(function (entries) {
@@ -70,7 +63,7 @@ if (stepCards.length) {
     stepObserver.observe(card);
   });
 }
-  // ----- Form submit: validate, show loading, reveal result -----
+  
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -99,12 +92,11 @@ if (stepCards.length) {
 
     if (!valid) return;
 
-    // Loading state
+    
 checkBtn.disabled = true;
 checkBtn.textContent = 'Checking…';
 
-// Simulated network delay — replace this whole block with a real
-// fetch('/api/check-result', { method: 'POST', body: ... }) call.
+
 setTimeout(function () {
   const examValue = encodeURIComponent(examInput.value.trim());
   window.location.href = 'result-page.html?exam=' + examValue;

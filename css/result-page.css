@@ -136,7 +136,7 @@ body {
   100% { left: 130%; }
 }
 
-/* ----- Stream picker ----- */
+
 .stream-picker {
   display: flex;
   gap: 10px;
@@ -275,7 +275,7 @@ body {
   background: var(--gold-alt);
 }
 
-/* ----- Generate button ----- */
+
 .btn-generate {
   display: block;
   width: 100%;
@@ -301,9 +301,7 @@ body {
   50% { box-shadow: 0 0 0 8px rgba(234, 210, 133, 0); }
 }
 
-/* ================================================= */
-/* ===== GENERATED SLIP SCREEN (distinct feel)  ===== */
-/* ================================================= */
+
 
 .slip-screen {
   min-height: 100vh;
