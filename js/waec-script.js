@@ -103,6 +103,8 @@ setTimeout(function () {
 }, 1200);
   });
 
+  
+
   function showError(el, message) {
     el.textContent = message;
   }
