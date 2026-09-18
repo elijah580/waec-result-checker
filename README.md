@@ -1,8 +1,8 @@
 # David Elijah
 
-# RESULTCHECK
+# RESULTCHECKER
 
-RESULTCHECK is a lightweight static web application for creating and printing WAEC-style result slips. It allows a candidate to enter their information, select a stream, add subjects and grades, and generate a polished result summary that can be printed or saved.
+RESULTCHECKER is a lightweight static web application for creating and printing WAEC-style result slips. It allows a candidate to enter their information, select a stream, add subjects and grades, and generate a polished result summary that can be printed or saved.
 
 ## Features
 
